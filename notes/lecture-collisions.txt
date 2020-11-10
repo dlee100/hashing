@@ -1,0 +1,33 @@
+Collisions
+
+Occurs when different elements are mapped to the same cell.
+
+Two categories of collision handling strategies:
+
+Open addressing: on collision, probe the table for the next open slot.
+- linear probing
+- quadratic probing
+- double hashing (not covered)
+
+Separate chaining (aka open hashing)
+- Let each cell in the table point to a linked list of entries that map there.
+- Simple but requires additional memory outside the table.
+- It is an array of linked lists
+
+Linear probing issues:
+- most data set codes do not end up being evenly distributed throughout the table.
+- adjacent slots are going to fill up and the records tend to ovvur in clusters or groups.
+- Clustering is especially bad at high load factors
+
+Quadradic probing:
+- improvement over linear (reduced primary clustering)
+- choose table size that's a prime number and ensure the load factor is never more than .5 (50%)
+    - then all open slot searches (probes) will be to different locations and an item can always be inserted.
+
+Insertions and Deletions:
+- with collision probing, deleting an element in the middle of a collision cluster means not finding anything after that element since an unoccupied slot ends the search.
+- to remedy, add an "occupied" element to each slot to serve as a 'delete' flag for removed elements in the middle of a cluster.
+- for insert, add the element to the 'delete' slot and remove the flag.
+- for find and delete, continue searching until the search item or an empty slot is found.
+- compress the HT by deleting slots with delete flags during an off-line maintenance window.
+

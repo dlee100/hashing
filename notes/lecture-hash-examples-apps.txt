@@ -1,0 +1,29 @@
+Hashing examples
+
+- use modulo division with the output 'tableSize' as the divisor: ssn % tableSize
+- using different divisors can help avoid collisions.
+
+Data structure with O(1) time complexity
+Security: digital signatures, document integrity / authentication (including drivers licenses, passports, etc)
+- can detect if a document has been altered / tampered
+
+Security: related to crypto algorithms (SHA, MD5, DES)
+Algorithm:
+- hashing:  HC = algorithm(data)
+- cryptographic:    Code = algorithm(data+key)
+
+Symmetric key: sender of msg and receiver of msg use the same key
+Asymmetric key: sender has a key (public) and receiver uses different key (private), e.g.: https://
+
+
+Balanced Trees vs Hash Tables:
+- balanced trees:
+    - necessary to handle sorted input
+    - harder to implement
+    - supports ordered operations: find minimum, find all keys within some range, etc.
+    - good worst case performance guarantee
+- hash tables:
+    - generally easier to implement (separate chaining)
+    - worst case can be poor, but can trade memory to get O(1)
+    - if ordered operations not needed, good choice
+- not a huge difference between O(lg N) and O(1)
