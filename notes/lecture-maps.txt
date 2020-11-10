@@ -1,0 +1,10 @@
+Maps/Dictionaries
+
+keys cannot have duplicates, must be unique.
+
+returns the values in constant time O(1)
+
+(Map ADT) core functions: get item, set item, delete item, length, iteration
+
+other methods: contains, get, set default, pop (specific item), pop item, clear, kets, values, items, update, equal/unequal
+
