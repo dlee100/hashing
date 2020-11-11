@@ -1,0 +1,34 @@
+Hashing
+
+Hash function: computes a hash code from an object
+Hash code: the integer computed by a hash function
+Hash table: mapping whose keys are hash codes and values are the thing being hashed. look a lot like arrays / linked lists
+Load (or load factor): item count / table size
+
+A hash function can be specified as the composition of two functions:
+- hash code:
+    - h1: keys -> integers
+- compression function:
+    - h2: integers -> [0,N-1]
+
+The hash code is applied first, and the compression function is applied on the result: h(x)=h2(h1(x))
+
+The goal of the hash function is to "disperse" the keys in an apparently random way.
+
+Memory address: we interpret the memory address of the key object as an integer - good in general, can be tricky for string keys.
+Integer cast: we reinterpret the bits of the key as an integer. suitable for keys of length less than or equal to the number of bits of the highest value integer we will use.
+
+Component sum: we partition the bits of the key into components of fixed length (e.g. 16 or 32 bits) and we sum the components (ignoring overflows), suitable for numeric keys of fixed length greater than or equal to the number of bits of the integer type.
+
+Polynomial accumulation: we partition the bits of the key into a sequence of components of fixed length (8, 16, 32 bits). we evaluate the polynomial. Especially suitable for strings (e.g. the choice z=33 gives at most 6 collisions on a set of 50000 English words)
+
+Compression functions:
+- division:
+    - h2(y) = y mod number
+    - The size N of the hash table is usually chosen to be a prime
+    - The reason has to do with number theory and is beyond the scope of this course
+    - Very common choice
+- Multiply, Add and Divide (MAD):
+    - h2(y) = (ay+b) mod N
+    - a and b are nonnegative integers such that: a mod N != 0
+    - otherwise, every integer would map to the same value b.
