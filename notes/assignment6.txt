@@ -1,1 +1,8 @@
 Assignment 6
+
+99 slots in hash table (HT)
+All slots are default as None
+
+Code template only runs the inserts. Must add the Find and Remove functions.
+
+Write your own hash function.
